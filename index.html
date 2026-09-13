@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CASTLY — Creative Network</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar">
+
+    <div class="brand">
+        <div class="brand-symbol">C</div>
+        <span>CASTLY</span>
+    </div>
+
+    <div class="nav-search">
+        <span>⌕</span>
+        <input
+            type="text"
+            placeholder="Search people, projects, skills..."
+            id="globalSearch"
+        >
+    </div>
+
+    <nav class="nav-center">
+        <a class="active" href="#">Home</a>
+        <a href="#discover">Discover</a>
+        <a href="#projects">Projects</a>
+        <a href="#network">Network</a>
+    </nav>
+
+    <div class="nav-right">
+
+        <button class="nav-icon" title="Messages">
+            ♢
+            <span class="notification-dot"></span>
+        </button>
+
+        <button class="nav-icon" title="Notifications">
+            ♡
+            <span class="notification-dot"></span>
+        </button>
+
+        <button class="profile-mini" onclick="toggleProfileMenu()">
+            <img
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80"
+                alt="Profile"
+            >
+        </button>
+
+    </div>
+
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+
+</header>
+
+
+<!-- PROFILE DROPDOWN -->
+
+<div class="profile-dropdown" id="profileDropdown">
+
+    <div class="dropdown-profile">
+
+        <img
+            src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80"
+            alt=""
+        >
+
+        <div>
+            <strong>Krishan Kumawat</strong>
+            <small>Creative Member</small>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <a href="#">My Profile</a>
+    <a href="#">My Portfolio</a>
+    <a href="#">Settings</a>
+
+    <button onclick="showToast('Demo logout')">
+        Log out
+    </button>
+
+</div>
+
+
+<!-- MOBILE NAV -->
+
+<div class="mobile-nav" id="mobileNav">
+
+    <a href="#">⌂ Home</a>
+    <a href="#discover">⌕ Discover</a>
+    <a href="#projects">▣ Projects</a>
+    <a href="#network">♧ Network</a>
+    <a href="#">♢ Messages</a>
+
+</div>
+
+
+<!-- =====================================================
+     PAGE
+===================================================== -->
+
+<main class="page">
+
+    <!-- =================================================
+         LEFT SIDEBAR
+    ================================================== -->
+
+    <aside class="left-sidebar">
+
+        <div class="side-profile">
+
+            <div class="cover"></div>
+
+            <img
+                class="side-avatar"
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=180&q=85"
+                alt="Profile"
+            >
+
+            <div class="side-profile-content">
+
+                <h3>Krishan Kumawat</h3>
+
+                <p>Web Developer · Creator</p>
+
+                <span class="location">📍 Rajasthan, India</span>
+
+                <div class="profile-stats">
+
+                    <div>
+                        <strong>184</strong>
+                        <small>Connections</small>
+                    </div>
+
+                    <div>
+                        <strong>27</strong>
+                        <small>Projects</small>
+                    </div>
+
+                </div>
+
+                <button class="view-profile">
+                    View profile
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="side-menu">
+
+            <a class="selected" href="#">
+                <span>⌂</span>
+                Home
+            </a>
+
+            <a href="#discover">
+                <span>◎</span>
+                Discover people
+            </a>
+
+            <a href="#projects">
+                <span>▣</span>
+                Find projects
+            </a>
+
+            <a href="#network">
+                <span>♧</span>
+                My network
+            </a>
+
+            <a href="#">
+                <span>♡</span>
+                Saved
+            </a>
+
+            <a href="#">
+                <span>♢</span>
+                Messages
+            </a>
+
+            <a href="#">
+                <span>◴</span>
+                Applications
+            </a>
+
+        </div>
+
+
+        <div class="side-footer">
+
+            <a href="#">About</a>
+            <a href="#">Safety</a>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+
+            <p>© 2026 CASTLY</p>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =================================================
+         MAIN FEED
+    ================================================== -->
+
+    <section class="feed">
+
+        <!-- CREATE POST -->
+
+        <div class="create-post">
+
+            <div class="create-top">
+
+                <img
+                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80"
+                    alt=""
+                >
+
+                <button onclick="openPostModal()">
+                    Share something with your network...
+                </button>
+
+            </div>
+
+            <div class="create-actions">
+
+                <button onclick="openPostModal()">
+                    <span class="photo-icon">▧</span>
+                    Photo
+                </button>
+
+                <button onclick="openPostModal()">
+                    <span class="video-icon">▶</span>
+                    Video
+                </button>
+
+                <button onclick="openPostModal()">
+                    <span class="project-icon">✦</span>
+                    Casting call
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- FEED FILTER -->
+
+        <div class="feed-filter">
+
+            <span>YOUR FEED</span>
+
+            <button onclick="changeFeed(this)">
+                Latest
+                <span>⌄</span>
+            </button>
+
+        </div>
+
+
+        <!-- =================================================
+             POST 1
+        ================================================== -->
+
+        <article class="post">
+
+            <div class="post-header">
+
+                <img
+                    class="post-avatar"
+                    src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80"
+                    alt=""
+                >
+
+                <div class="post-author">
+
+                    <div class="author-name">
+                        Rohan Kapoor
+                        <span class="verified">✓</span>
+                    </div>
+
+                    <p>
+                        Actor · Theatre Artist
+                    </p>
+
+                    <small>
+                        2h · Mumbai, India
+                    </small>
+
+                </div>
+
+                <button class="post-more">•••</button>
+
+            </div>
+
+
+            <div class="post-text">
+
+                <p>
+                    Just wrapped up a theatre project I've been working
+                    on for the last two months.
+                </p>
+
+                <p>
+                    Looking forward to meeting more filmmakers and
+                    creators here. 🎬
+                </p>
+
+                <div class="post-tags">
+                    #actor #theatre #filmmaking #casting
+                </div>
+
+            </div>
+
+
+            <div class="post-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=85"
+                    alt="Film set"
+                >
+
+                <div class="image-overlay-label">
+                    NEW PROJECT
+                </div>
+
+            </div>
+
+
+            <div class="post-stats">
+
+                <span>♡ 126</span>
+                <span>24 comments</span>
+                <span>8 shares</span>
+
+            </div>
+
+
+            <div class="post-actions">
+
+                <button onclick="likePost(this)">
+                    ♡ <span>Like</span>
+                </button>
+
+                <button>
+                    ◯ <span>Comment</span>
+                </button>
+
+                <button>
+                    ↗ <span>Share</span>
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             CASTING POST
+        ================================================== -->
+
+        <article class="post casting-post">
+
+            <div class="post-header">
+
+                <div class="project-avatar">
+                    🎬
+                </div>
+
+                <div class="post-author">
+
+                    <div class="author-name">
+                        Blue Frame Studios
+                        <span class="verified">✓</span>
+                    </div>
+
+                    <p>Independent Production</p>
+
+                    <small>4h · Jaipur</small>
+
+                </div>
+
+                <button class="post-more">•••</button>
+
+            </div>
+
+
+            <div class="post-text">
+
+                <div class="casting-label">
+                    ● CASTING CALL
+                </div>
+
+                <h2>
+                    Looking for a Male Lead
+                    for our upcoming short film.
+                </h2>
+
+                <p>
+                    We are looking for a natural performer for an
+                    emotional coming-of-age story.
+                </p>
+
+            </div>
+
+
+            <div class="casting-details">
+
+                <div>
+                    <small>ROLE</small>
+                    <strong>Male Lead</strong>
+                </div>
+
+                <div>
+                    <small>LOCATION</small>
+                    <strong>Jaipur</strong>
+                </div>
+
+                <div>
+                    <small>PROJECT</small>
+                    <strong>Short Film</strong>
+                </div>
+
+                <div>
+                    <small>BUDGET</small>
+                    <strong>₹5K – ₹10K</strong>
+                </div>
+
+            </div>
+
+
+            <div class="skill-list">
+
+                <span>Hindi</span>
+                <span>Drama</span>
+                <span>Natural Acting</span>
+                <span>18–28</span>
+
+            </div>
+
+
+            <div class="casting-footer">
+
+                <span>
+                    <b>32</b> applicants
+                </span>
+
+                <button
+                    class="apply-btn"
+                    onclick="applyProject(this)"
+                >
+                    Apply for role →
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             POST 2
+        ================================================== -->
+
+        <article class="post">
+
+            <div class="post-header">
+
+                <img
+                    class="post-avatar"
+                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80"
+                    alt=""
+                >
+
+                <div class="post-author">
+
+                    <div class="author-name">
+                        Meera Sharma
+                    </div>
+
+                    <p>Actor · Model · Dancer</p>
+
+                    <small>
+                        Yesterday · Delhi
+                    </small>
+
+                </div>
+
+                <button class="post-more">•••</button>
+
+            </div>
+
+
+            <div class="post-text">
+
+                <p>
+                    New portfolio portraits are finally here.
+                    Always looking to collaborate with directors,
+                    photographers and other creatives.
+                </p>
+
+            </div>
+
+
+            <div class="portfolio-grid">
+
+                <img
+                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=700&q=85"
+                    alt=""
+                >
+
+                <img
+                    src="https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=700&q=85"
+                    alt=""
+                >
+
+                <img
+                    src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=700&q=85"
+                    alt=""
+                >
+
+            </div>
+
+
+            <div class="post-stats">
+
+                <span>♡ 248</span>
+                <span>41 comments</span>
+
+            </div>
+
+
+            <div class="post-actions">
+
+                <button onclick="likePost(this)">
+                    ♡ <span>Like</span>
+                </button>
+
+                <button>
+                    ◯ <span>Comment</span>
+                </button>
+
+                <button>
+                    ↗ <span>Share</span>
+                </button>
+
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <!-- =================================================
+         RIGHT SIDEBAR
+    ================================================== -->
+
+    <aside class="right-sidebar">
+
+        <!-- PROFILE COMPLETION -->
+
+        <div class="right-card completion-card">
+
+            <div class="right-title">
+
+                <strong>Complete your profile</strong>
+
+                <span>72%</span>
+
+            </div>
+
+            <div class="progress">
+                <div style="width:72%"></div>
+            </div>
+
+            <p>
+                Add an intro video and skills to improve
+                your chances of getting discovered.
+            </p>
+
+            <button onclick="showToast('Profile editor opened')">
+                Complete profile →
+            </button>
+
+        </div>
+
+
+        <!-- SUGGESTED PEOPLE -->
+
+        <div class="right-card" id="discover">
+
+            <div class="right-title">
+
+                <strong>People you may know</strong>
+
+                <button>See all</button>
+
+            </div>
+
+
+            <div class="suggested-person">
+
+                <img
+                    src="https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=150&q=80"
+                    alt=""
+                >
+
+                <div class="suggested-info">
+
+                    <strong>Karan Singh</strong>
+
+                    <small>
+                        Actor · Filmmaker
+                    </small>
+
+                    <span>
+                        8 mutual connections
+                    </span>
+
+                </div>
+
+                <button
+                    class="connect-btn"
+                    onclick="connect(this)"
+                >
+                    +
+                </button>
+
+            </div>
+
+
+            <div class="suggested-person">
+
+                <img
+                    src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80"
+                    alt=""
+                >
+
+                <div class="suggested-info">
+
+                    <strong>Ananya Rao</strong>
+
+                    <small>
+                        Director · Writer
+                    </small>
+
+                    <span>
+                        5 mutual connections
+                    </span>
+
+                </div>
+
+                <button
+                    class="connect-btn"
+                    onclick="connect(this)"
+                >
+                    +
+                </button>
+
+            </div>
+
+
+            <div class="suggested-person">
+
+                <img
+                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80"
+                    alt=""
+                >
+
+                <div class="suggested-info">
+
+                    <strong>Aditya Verma</strong>
+
+                    <small>
+                        Director · Producer
+                    </small>
+
+                    <span>
+                        12 mutual connections
+                    </span>
+
+                </div>
+
+                <button
+                    class="connect-btn"
+                    onclick="connect(this)"
+                >
+                    +
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- TRENDING PROJECTS -->
+
+        <div class="right-card" id="projects">
+
+            <div class="right-title">
+
+                <strong>Trending projects</strong>
+
+                <button>See all</button>
+
+            </div>
+
+
+            <div class="mini-project">
+
+                <div class="mini-project-icon">🎬</div>
+
+                <div>
+
+                    <strong>
+                        The Last Letter
+                    </strong>
+
+                    <small>
+                        Drama · Delhi
+                    </small>
+
+                    <span>
+                        86 applicants
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="mini-project">
+
+                <div class="mini-project-icon orange">
+                    ✦
+                </div>
+
+                <div>
+
+                    <strong>
+                        Campus Stories
+                    </strong>
+
+                    <small>
+                        Short Film · Jaipur
+                    </small>
+
+                    <span>
+                        43 applicants
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="mini-project">
+
+                <div class="mini-project-icon purple">
+                    ▶
+                </div>
+
+                <div>
+
+                    <strong>
+                        Untitled Music Video
+                    </strong>
+
+                    <small>
+                        Music · Mumbai
+                    </small>
+
+                    <span>
+                        29 applicants
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- NETWORK -->
+
+        <div class="right-card network-card" id="network">
+
+            <div class="right-title">
+                <strong>Grow your network</strong>
+            </div>
+
+            <p>
+                Connect with filmmakers, actors,
+                editors, writers and producers.
+            </p>
+
+            <button onclick="showToast('Discovering your network')">
+                Discover people →
+            </button>
+
+        </div>
+
+    </aside>
+
+</main>
+
+
+<!-- =====================================================
+     POST MODAL
+===================================================== -->
+
+<div class="modal" id="postModal">
+
+    <div class="modal-box">
+
+        <button class="close-modal" onclick="closePostModal()">×</button>
+
+        <span class="modal-label">CREATE</span>
+
+        <h2>
+            Share with your
+            <em>network.</em>
+        </h2>
+
+        <textarea
+            id="postText"
+            placeholder="What are you working on?"
+        ></textarea>
+
+        <div class="modal-post-options">
+
+            <button>▧ Photo</button>
+            <button>▶ Video</button>
+            <button>✦ Casting</button>
+
+        </div>
+
+        <button
+            class="publish-btn"
+            onclick="publishPost()"
+        >
+            Publish post →
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div class="toast" id="toast">
+
+    <span>✓</span>
+
+    <p id="toastMessage">
+        Done
+    </p>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
